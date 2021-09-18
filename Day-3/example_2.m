@@ -10,6 +10,7 @@ FrameRate = videoObj.FrameRate;
 for i=1:No_of_frames
     filename = strcat(num2str(i), '.bmp');
     frame=read(videoObj, i);
+    frme = imresize(frame, [526, 526]);
     imshow(frame);
     imwrite(frame, filename);
     pause(1/FrameRate);

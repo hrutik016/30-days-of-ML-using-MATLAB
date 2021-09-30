@@ -4,12 +4,14 @@ close all;
 
 load iris_dataset;
 
-InputFeatures = irisInputs;
-Targetclass = irisTargets';
+InputFeatures = irisInputs';
+Targetclass = irisTargets;
 Targetclass = vec2ind(Targetclass);
-knn = fitcknn(InputFeatures, Targetclass);
+Targetclass = Targetclass';
 
-save knn knn;
+knn1 = fitcknn(InputFeatures, Targetclass);
+
+save knn1 knn1;
 
 disp('STOP');
  

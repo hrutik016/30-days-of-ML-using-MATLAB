@@ -18,5 +18,6 @@ Traindata.Labels = TargetClass;
 svm = fitcecoc(Features, TargetClass);
 
 save svm svm;
+disp('left a bit from video');
 
 disp('STOP');

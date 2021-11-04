@@ -2,17 +2,21 @@ clc;
 clear all;
 close all;
 
-imds = imageDatastore('dataset', 'IncludeSubfolders', true, 'LabelSource', 'foldernames');
+imds = imageDatastore('dataset', 'IncludeSubfolders', true,...
+    'LabelSource', 'foldernames');
 
-[trainGestureData, testGestureData] = splitEachLabel(imds, 0.90, 'randomize');
+no_of_images = numel(imds.Files);
+
+[trainData, testData] = splitEachLabel(imds, 0.60, 'randomize');
+save testData testData;
 
 %architecture
 layers = [imageInputLayer([128 128 3])
-    convolution2dLayer(5, 20)
+    convolution2dLayer(5, 10)
     reluLayer
     maxPooling2dLayer(2, 'Stride', 2)
     fullyConnectedLayer(2)
-    softmaxLayer
+    softmaxLayer();
     classificationLayer()];
 
 
@@ -23,6 +27,9 @@ options = trainingOptions('sgdm',...
     'LearnRateDropFactor',0.2,...
     'LearnRateDropPeriod',5,...
     'MiniBatchSize',300)
+
+%[net, info] = trainNetwork(trainData, Layers, options);
+%save net net;
 
 options.MaxEpochs = 30;
 options.InitialLearnRate=0.0001;

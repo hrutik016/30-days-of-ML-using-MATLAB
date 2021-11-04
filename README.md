@@ -30,9 +30,7 @@ Day-13: Machine Learning and IOT using MATLAB
 
 Day-14: Deep Learning using MATLAB-Simple CNN
 
-Day-15: Supervised Learning using MATLAB
-
-Day-16: Face Recognition using MATLAB(CNN)
+Day-15/16: Supervised Learning and Face Recognition using MATLAB(CNN)
 
 Day-17: RCNN usin MATLAB
 

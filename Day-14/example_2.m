@@ -6,13 +6,11 @@ close all;
 
 load trainedNet.mat
 [filename, pathname] = uigetfile('*.*','Pick a input image');
-filename=strcat(pathname,filename);
-im = imread(filename);
-im = imresize(im, [128 128]);
 
-%classify with deep learning
-label = char(classify(covnet,im));
-
-figure;
-imshow(im);
-title(label);
+if isequal(filename,0) || isequal(pathname,0)
+    warndlg('User pressed cancel');
+else
+    img = imread([pathname filename]);
+    class = classify(net, img);
+    disp(class);
+end

@@ -23,6 +23,7 @@ while(1)
         filename = strcat(num2str(i), '.bmp');
         imwrite(face,filename);
 
+        i=i+1;
         imshow(IFaces);
     end
 end
